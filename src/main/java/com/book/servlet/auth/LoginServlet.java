@@ -1,4 +1,4 @@
-package com.book.servlet;
+package com.book.servlet.auth;
 
 import com.book.service.UserService;
 import com.book.service.impl.UserServiceImpl;
@@ -44,8 +44,7 @@ public class LoginServlet extends HttpServlet {
         // 3. 若正确, 向session中添加一个user; 否则, 向session中添加登录失败标记, 重定向到login， login的get通过标记，动态展示内容
         boolean flag = service.auth(username, password, req.getSession());
         if (flag){
-            resp.setContentType("text/html;charset=UTF-8");
-            resp.getWriter().write("登录成功！");
+            resp.sendRedirect("index");
         }
         else {
             req.getSession().setAttribute("login-failure", new Object());
