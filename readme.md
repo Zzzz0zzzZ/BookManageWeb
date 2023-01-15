@@ -1,5 +1,7 @@
 # 基于Servlet+Mybatis+Thymeleaf的图书管理系统
 
+> [线上地址](http://106.12.165.78:8080/book_manage/login)
+
 ## 项目需求：
 
 * 图书管理员的登陆和退出（只有登陆之后才能进入管理页面）
