@@ -31,7 +31,7 @@
 	</div>
     <!-- Main Body -->
     <div class="page-wrapper">
-        <!--        headers-->
+        <!-- headers-->
         <div th:replace="headers.html::title"></div>
         <!-- Sidebar Start -->
         <aside class="sidebar-wrapper">
@@ -82,14 +82,14 @@
                     <div class="colxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-title-wrapper">
                             <div class="page-title-box">
-                                <h4 class="page-title bold">Dashboard</h4>
+                                <h4 class="page-title bold">图书管理系统</h4>
                             </div>
                             <div class="breadcrumb-list">
                                 <ul>
                                     <li class="breadcrumb-link">
-                                        <a href="javascript:void(0);"><i class="fas fa-home mr-2"></i>Dashboard</a>
+                                        <a href="index"><i class="fas fa-home mr-2"></i>图书管理系统</a>
                                     </li>
-                                    <li class="breadcrumb-link active">Admin</li>
+                                    <li class="breadcrumb-link active">图书管理员</li>
                                 </ul>
                             </div>
                         </div>
@@ -238,9 +238,11 @@
                             <div class="card-header">
                                 <h4 class="has-btn">
                                     图书借阅列表
-                                    <span th:if="${return-failure}" style="color: red"> 归还失败！</span>
+                                    <span th:if="${return_failure}" style="color: red"> 归还失败！</span>
                                     <span>
+                                        <a href="borrow">
                                         <button type="button" class="btn btn-primary squer-btn sm-btn">添加借阅信息</button>
+                                            </a>
                                     </span>
                                 </h4>
                             </div>

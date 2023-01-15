@@ -1,11 +1,12 @@
 package com.book.dao;
 
+import com.book.entity.Book;
 import com.book.entity.Borrow;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import com.book.entity.Student;
+import com.book.entity.User;
+import org.apache.ibatis.annotations.*;
 
+import java.util.Date;
 import java.util.List;
 
 public interface BookMapper {
@@ -25,4 +26,13 @@ public interface BookMapper {
 
     @Delete("delete from borrow where id = #{id}")
     int deleteOneBorrow(String id);
+
+    @Select("SELECT * FROM book WHERE bid NOT IN (SELECT bid FROM borrow)")
+    List<Book> getBookList();
+
+    @Select("select * from student")
+    List<Student> getStudentList();
+
+    @Insert("insert into borrow(sid, bid, borrow_time) values(#{sid}, #{bid}, #{borrow_time})")
+    boolean addOneBorrow(@Param("sid") String sid, @Param("bid") String bid, @Param("borrow_time")String borrow_time);
 }

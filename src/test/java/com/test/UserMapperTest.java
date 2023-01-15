@@ -3,7 +3,6 @@ package com.test;
 import com.book.dao.UserMapper;
 import com.book.entity.User;
 import com.book.utils.MybatisUtil;
-import lombok.Cleanup;
 import lombok.extern.java.Log;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.BeforeAll;
