@@ -4,6 +4,7 @@ import com.book.dao.BookMapper;
 import com.book.dao.UserMapper;
 import com.book.entity.Book;
 import com.book.entity.User;
+import com.book.utils.DateFormatUtil;
 import com.book.utils.MybatisUtil;
 import lombok.extern.java.Log;
 import org.apache.ibatis.session.SqlSession;
@@ -38,8 +39,8 @@ public class BookMapperTest {
         String date = format.format(new Date());
         System.out.println(date);
 
-        String a = "";
-        System.out.println(a.equals(""));
+        Date date1  = new Date();
+        System.out.println(DateFormatUtil.getFormatDate(date1));
     }
 
 }

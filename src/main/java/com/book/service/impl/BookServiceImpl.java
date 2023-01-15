@@ -6,6 +6,7 @@ import com.book.entity.Borrow;
 import com.book.entity.Student;
 import com.book.entity.User;
 import com.book.service.BookService;
+import com.book.utils.DateFormatUtil;
 import com.book.utils.MybatisUtil;
 import lombok.Cleanup;
 import org.apache.ibatis.session.SqlSession;
@@ -59,8 +60,6 @@ public class BookServiceImpl implements BookService {
         @Cleanup
         SqlSession session = MybatisUtil.getSession(true);
         BookMapper mapper = session.getMapper(BookMapper.class);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String borrow_time = format.format(new Date());
-        return mapper.addOneBorrow(sid, bid, borrow_time);
+        return mapper.addOneBorrow(sid, bid, DateFormatUtil.getFormatDate(new Date()));
     }
 }

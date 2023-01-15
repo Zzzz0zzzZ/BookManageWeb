@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/borrow")
-@Log
 public class BorrowServlet extends HttpServlet {
 
     BookService service;
@@ -37,7 +36,6 @@ public class BorrowServlet extends HttpServlet {
         context.setVariable("books", books);
         context.setVariable("students", students);
         if (books.isEmpty() || students.isEmpty()){
-            log.warning("空33333333333333333333333");
             context.setVariable("no_borrow", true);
         }
 
