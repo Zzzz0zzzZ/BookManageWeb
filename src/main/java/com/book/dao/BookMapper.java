@@ -35,4 +35,14 @@ public interface BookMapper {
 
     @Insert("insert into borrow(sid, bid, borrow_time) values(#{sid}, #{bid}, #{borrow_time})")
     boolean addOneBorrow(@Param("sid") String sid, @Param("bid") String bid, @Param("borrow_time")String borrow_time);
+
+    @Select("select * from book")
+    List<Book> getAllBooks();
+
+    @Delete("delete from book where bid = #{bid}")
+    boolean deleteOneBook(String bid);
+
+    @Insert("insert into book(title, `desc`, price) values(#{title}, #{desc}, #{price})")
+    boolean addOneBook(Book book);
+
 }

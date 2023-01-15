@@ -4,6 +4,8 @@ import com.book.dao.BookMapper;
 import com.book.dao.UserMapper;
 import com.book.entity.Book;
 import com.book.entity.User;
+import com.book.service.BookService;
+import com.book.service.impl.BookServiceImpl;
 import com.book.utils.DateFormatUtil;
 import com.book.utils.MybatisUtil;
 import lombok.extern.java.Log;
@@ -29,8 +31,10 @@ public class BookMapperTest {
 
     @Test
     public void testBookMapper(){
-        List<Book> book = bookMapper.getBookList();
-        book.forEach(System.out::println);
+        BookService service = new BookServiceImpl();
+        service.getAllBookListAndStatus().forEach((book, aBoolean) -> {
+            System.out.println(book.toString() + aBoolean);
+        });
     }
 
     @Test
